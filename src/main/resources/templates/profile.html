@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>App</title>
+</head>
+<body>
+    <div> El usuario registrado es:</div>
+    <span th:text="${userProfile.name}"/>
+    <span th:text="${userProfile.lastName}"/>
+    <br>
+    <!-- if-else -->
+    <span th:if="${userProfile.email}" th:text="${userProfile.email}"/>
+    <span th:if="${userProfile.email == null}">User without email</span>
+</body>
+</html>

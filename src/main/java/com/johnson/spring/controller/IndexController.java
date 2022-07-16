@@ -6,6 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Controller
 @RequestMapping("/index-api")
 public class IndexController {
@@ -21,6 +25,16 @@ public class IndexController {
         model.addAttribute("userProfile",
                 new User("johnson", "acaro", "johnson@test.com"));
         return "profile";
+
+    }
+
+    @GetMapping("/userList")
+    public String getUserList(Model model) {
+        List<User> users = Arrays.asList(new User("johnson", "acaro", "johnson@test.com"),
+                new User("noelia", "ubierna", "noe@gmail.com"),
+                new User("john", "doe", "dissapeared@test.com"));
+        model.addAttribute("users", users);
+        return "profileList";
 
     }
 }

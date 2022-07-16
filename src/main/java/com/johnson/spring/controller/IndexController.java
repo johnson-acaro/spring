@@ -1,6 +1,7 @@
 package com.johnson.spring.controller;
 
 import com.johnson.spring.model.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +15,12 @@ import java.util.List;
 @RequestMapping("/index-api")
 public class IndexController {
 
+    @Value("${index.title}")
+    private String indexTitle;
+
     @GetMapping("/index")
     public String index(Model model){
-        model.addAttribute("title", "hola soy Johnson Acaro Arrobo");
+        model.addAttribute("title", indexTitle);
         return "index"; //nombre de la vista html del directorio /templates
     }
 
